@@ -1,5 +1,6 @@
 angular.module('search', [
-	'flickr.models.photos'
+	'flickr.models.photos',
+	'view'
 ])
 	.config(function($stateProvider) {
 		$stateProvider

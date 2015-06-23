@@ -16,7 +16,7 @@ angular.module('flickr')
             })
         ;
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/sightseeting');
     })
     .run([
         '$rootScope', '$state', '$stateParams',

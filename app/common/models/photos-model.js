@@ -12,7 +12,7 @@ angular.module('flickr.models.photos', [])
 
         model.search = function(search) {
             photos = null;
-            model.query = (search.length > 0) ? search : 'holiday attraction';
+            model.query = (search.length > 0) ? search : 'sightseeing';
             return (photos) ? $q.when(photos) : $http.get(URLS.FETCH + '&method=flickr.photos.search&text='+model.query).then(function(result) {
                 return cache(result);
             });
@@ -45,6 +45,13 @@ angular.module('flickr.models.photos', [])
                     total: result.photos.total    
                 }
             }
+        }
+
+        model.find = function(photoId) {
+            console.log(photos);
+            return _.find(photos.photos, function(photo) {
+                return photo.id === photoId;
+            })
         }
     })
 
