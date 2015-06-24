@@ -13,15 +13,19 @@ angular.module('view', [
 				},
 				resolve: {
                     photo: function(PhotosModel, $stateParams) {
-                        return PhotosModel.find($stateParams.id);
+                        return PhotosModel.retrieve($stateParams.id);
                     }
                 }
 			})
 	})
 	.controller('ViewController', function ViewController($stateParams, PhotosModel, photo) {
+		console.log(photo);
 		var ViewCtrl = this;
 		ViewCtrl.photo = photo;
 		ViewCtrl.id = $stateParams.id;
+		var st = $(window).scrollTop();
+
+		$('.flickr-modal').css('top',(st+40));
 	})
 
 ;

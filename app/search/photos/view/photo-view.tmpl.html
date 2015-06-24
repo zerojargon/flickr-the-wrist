@@ -1,16 +1,18 @@
 <div id="overlay" ng-click="$state.go('^')">
 </div>
 <div class="flickr-modal row">
-	<div class="col-md-12">
-		<div class="pull-left ">
-			<img src="https://farm{{ViewCtrl.photo.farm}}.staticflickr.com/{{ViewCtrl.photo.server}}/{{ViewCtrl.photo.id}}_{{ViewCtrl.photo.secret}}.jpg">
-		</div>
-		<h1>{{ViewCtrl.photo.title}}</h1>
-		<a href=""><h3 class="small">by {{ViewCtrl.photo.ownername}}</h3></a>
+	<article class="col-md-12">
+		<figure class="pull-left image-full">
+			<a href="https://www.flickr.com/photos/{{ViewCtrl.photo.owner.nsid}}/{{ViewCtrl.photo.id}}" target="_blank"><img src="https://farm{{ViewCtrl.photo.farm}}.staticflickr.com/{{ViewCtrl.photo.server}}/{{ViewCtrl.photo.id}}_{{ViewCtrl.photo.secret}}.jpg"></a>
+		</figure>
+		<header>
+			<a href="https://www.flickr.com/photos/{{ViewCtrl.photo.owner.nsid}}/{{ViewCtrl.photo.id}}" target="_blank"><h1>{{ViewCtrl.photo.title._content}}</h1></a>
+			<h3 class="small">by <a href="https://www.flickr.com/people/{{ViewCtrl.photo.owner.username}}" target="_blank">{{ViewCtrl.photo.owner.username}}</a></h3>
+		</header>
 		<p>{{ViewCtrl.photo.description._content}}</p>
-	</div>
-	<div class="col-md-12">
-		<h4>Tags</h4>
-		<small ng-repeat="tag in ViewCtrl.photo.tags" ui-sref="flickr.search({query: tag})" class="tag">{{tag}}</small>
-	</div>
+		<footer ng-show="ViewCtrl.photo.tags.tag[0]">
+			<h4>Tags</h4>
+			<small ng-repeat="tag in ViewCtrl.photo.tags.tag" ui-sref="flickr.search({query: tag._content})" class="tag">{{tag._content}}</small>
+		</footer>
+	</article>
 </div>

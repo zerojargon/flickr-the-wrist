@@ -19,7 +19,7 @@ angular.module('search', [
                 }
 			})
 	})
-	.controller('PhotosController', function PhotosController($stateParams, PhotosModel, photos) {
+	.controller('PhotosController', function PhotosController($stateParams, PhotosModel, photos, $state) {
 		var PhotosCtrl = this;
 		PhotosCtrl.photos = photos;
 		PhotosCtrl.throttle = 0;

@@ -47,11 +47,10 @@ angular.module('flickr.models.photos', [])
             }
         }
 
-        model.find = function(photoId) {
-            console.log(photos);
-            return _.find(photos.photos, function(photo) {
-                return photo.id === photoId;
-            })
+        model.retrieve = function(photoId) {
+            return $http.get(URLS.FETCH + '&method=flickr.photos.getInfo&photo_id='+photoId).then(function(result) {
+                return result.data.photo;
+            });
         }
     })
 

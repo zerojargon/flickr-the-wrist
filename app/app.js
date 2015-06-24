@@ -7,7 +7,7 @@ angular.module('flickr', [
 angular.module('infinite-scroll').value('THROTTLE_MILLISECONDS', 500);
 angular.module('flickr')
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-        $locationProvider.html5Mode(true).hashPrefix('!');
+        //$locationProvider.html5Mode(true).hashPrefix('!');
         $stateProvider
             //abstract state serves as a PLACEHOLDER or NAMESPACE for application states
             .state('flickr', {
@@ -16,7 +16,7 @@ angular.module('flickr')
             })
         ;
 
-        $urlRouterProvider.otherwise('/sightseeting');
+        $urlRouterProvider.otherwise('/sightseeing');
     })
     .run([
         '$rootScope', '$state', '$stateParams',
